@@ -1,0 +1,769 @@
+<html>
+
+	<head>
+	    <link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	    <script type="text/javascript" src="lib/jquery.min.js"></script>
+	    <script type="text/javascript" src="lib/fabric.min.js"></script>	
+		<style>
+			.btn-primary1 {
+				padding: 0.2px;
+				background-color: transparent;
+				border: none;
+				margin-top: 1px;
+			}
+	
+				.btn-primary1 > .total-count {
+					position: absolute;
+					background-color: black;
+					margin-left: -12.5px;
+					margin-top: -1px;
+					padding: 4px 5.5px;
+					border-radius: 30px;
+				}
+	
+				.btn-primary1:hover {
+					background-color: white;
+					transition: all 200ms ease-in-out;
+					border-radius: 20px;
+				}
+	
+				.card > img{
+					max-height: 235px;
+					max-width: 235px;
+				}
+	
+				.card-block{
+					padding-right: 5px;
+				}
+	
+				.card{
+					height: 450px;
+					position: relative;
+				}
+	
+				body{
+		min-width: 580px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+	
+	.mainbackground{
+		background:url('../images/aaaa.jpg');
+		background-position: center;
+		background-attachment: fixed;
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh; /*100 same as viewport height, vh = 'viewport height' */
+		display: flex;
+		flex-direction: column;
+		animation-name: bgm;
+		animation-duration: 2s;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
+	}
+	
+	.history_text_1{
+		background: url('../assets/img/historywall.jpg');
+		background-position: center;
+		background-attachment: fixed;
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh; /*100 same as viewport height, vh = 'viewport height' */
+		display: flex;
+		flex-direction: column;
+		animation-name: bgm;
+		animation-duration: 2s;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
+		word-spacing:10px;
+	}
+	
+	.textcontainer{
+		background-color: rgba(0, 0, 0, 0.4);
+		padding:30px 10vw 30px 10vw;
+		text-align: justify;
+		display:flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		height: 100%;
+		font-size: 20px;
+		line-height: 2em;
+		word-spacing:10px;
+	}
+	
+	.textcontainer > h2 {
+		color: white;
+		text-shadow: 2px 2px 2px #000000;
+		z-index: 2;
+		
+	}
+	
+	
+	.maincontainer,.arrow{    
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		min-height:50px;
+		width: 100%;
+		font-size:medium;
+		word-spacing:5px;
+	}
+	
+	.gg {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: start;
+		padding: 30px 30px;
+		width: 40%;
+		min-height: 300px;
+	}
+	
+	.gg p {
+			color: black;
+			text-align: left;
+			line-height: 2em;
+		}
+	
+	.wyhistory {
+	
+		
+		
+		background-size: cover;
+		width: 45%;
+		min-height: 430px;
+		margin-bottom:auto;
+		margin-top:auto;
+		
+		
+	
+	}
+	
+	
+	
+	
+	.read_more{
+		width: 100%;
+		text-align: right;
+	
+	}
+	
+	.read_more > a {
+		color: white;
+	
+	}
+	
+	.read_more > a:hover{
+		border: 10px #ffffff solid;
+	}
+	
+	.read_more > a:visited{
+		color: gray;
+	}
+	
+	footer {
+		text-align: center;
+		font-size: medium;
+		font-style: italic;
+		font-weight: bold;
+		color: rgba(217, 199, 235, 1);
+		background-color: black;
+	}
+	@import url("https://fonts.googleapis.com/css?family=Lato|Ubuntu&display=swap");
+	@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap');
+	/* font-family: 'Lato', sans-serif;
+	font-family: 'Ubuntu', sans-serif; 
+	font-family: 'Source Code Pro', monospace;*/
+	*{
+		box-sizing: border-box;
+		font-family: 'Lato' , sans-serif;
+		margin: 0px;
+		padding: 0px;
+		color: black;
+	}
+	
+	
+	
+	.nav-container{
+		position: fixed;
+		top: 0%;
+		width: 100%;
+		z-index: 3;
+	}
+	
+	.nav-btn-home{
+		background-color: transparent;
+		padding: 0px 50px 20px 50px;
+		font-weight: 900;
+		font-size: 20px;
+	}
+	
+	.nav-btn-home:hover{
+		font-size: 25px;
+		color: #ffffff;
+		transition: all 200ms ease;
+		border-bottom: 5px #ffffff solid;
+	}
+	@keyframes bgm{
+		from {background-position-y:-20px;}
+		to   {background-position-y: 0px;}
+	}
+	
+	.titletext{
+		background-color: gba(0, 0, 0, 0.4);
+	}
+	
+	.cooltext{
+		display:flex;
+	}
+	
+	#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#c12,#c13,#c14{ 
+		display: inline;
+		padding:30px;
+		opacity: 0;
+		font-weight: bold;
+		animation-name: cooltext;
+		animation-duration: 500ms;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+		font-family: 'Merriweather Sans', sans-serif;
+		font-weight: bold;
+	}
+	
+	#c1{animation-delay: 0s;}
+	#c2{animation-delay: 200ms;}
+	#c3{animation-delay: 400ms;}
+	#c4{animation-delay: 600ms;}
+	#c5{animation-delay: 800ms;}
+	#c6{animation-delay: 1000ms;}
+	#c7{animation-delay: 1200ms;}
+	#c8{animation-delay: 1400ms;}
+	#c9{animation-delay: 1600ms;}
+	#c10{animation-delay: 1800ms;}
+	#c11{animation-delay: 2000ms;}
+	#c12{animation-delay: 2200ms;}
+	#c13{animation-delay: 2400ms;}
+	#c14{animation-delay: 2600ms;}
+	
+	@keyframes cooltext{
+		from{opacity: 0;}
+		to{opacity: 1;}
+	}
+	
+	header{
+		position: absolute;
+		flex-flow: column;
+		display:flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		padding: 20px 40px;
+		background-color: rgba(0,0,0,.5);
+		transition: all 300ms ease-in-out;
+		width:100%;
+		height: 20%;
+		z-index: 2;
+	}
+	
+	
+	header:hover{
+		opacity:1;
+		transition: all 200ms ease;
+		
+	}
+	
+	.navlink li{
+		display: inline-block;
+		letter-spacing: 2px;
+		padding:5px 10px;
+	}
+	
+	.navlink button,hover{
+		padding:8px;
+		border-radius: 15px;
+		background-color:#5F00BA;
+		border: 1px none;
+		filter: grayscale(100%);
+		transition: all 200ms ease;
+	}
+	
+	.navlink button:hover{
+		filter: grayscale(0%);
+		transition: all 200ms ease;
+	}
+	
+	header h1,li, button{
+		color: white;
+		text-decoration: none;
+		list-style: none;
+		font-weight: 600;
+	}
+	
+	a:link, a:visited{
+		color: black;
+		text-decoration: none;
+		transition: all 200ms ease;
+	}
+	
+	.nav-btn{
+		background-color: transparent;
+		padding: 80px 80px;
+		font-weight: 900;
+		font-size: 20px;
+	}
+	
+	.nav-btn:hover{
+		font-size: 25px;
+		color: #ffffff;
+		transition: all 200ms ease;
+		border-bottom: 5px #ffffff solid;
+	}
+	
+	.nav-btn-container{
+		position: fixed;
+		top: 30%;
+	}
+	
+	.nav-float-btn {
+		background-color: rgba(0,0,0,0.5);
+		width: 100%;
+		height: 200px;
+		position: fixed;
+		top: 0%;
+		display: table;
+		border-collapse: separate;
+		border-spacing: 30px;
+		opacity:0.5;
+	}
+	  
+	.nav-float-btn-row { display:table-row; }
+	  
+	.nav-float-btn-cell {
+		display:table-cell;
+		vertical-align: middle;
+	}
+	
+	.titletext,.titletext2{
+		display:flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		height: 100%;
+	}
+	
+	.titletext-container {
+		position: fixed;
+		text-align: center;
+		bottom: 250px;
+		width: 100%;
+		color: rgba(226, 227, 238, 1);
+	}
+	
+	.maintitle {
+		font-family: 'Ubuntu', sans-serif;
+		font-size: 80px;
+		color: white;
+		font-weight: bolder;
+		text-align: center;
+		letter-spacing: 5px;
+		padding: 10px 30px;
+	
+	   
+	}
+	
+	.subtitle{
+		color: rgb(230,230,230);
+		text-align: center;
+		letter-spacing: 3px;
+		font-weight:lighter;
+		font-size: 30px;
+		font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	   
+	}
+	
+	.grid-container{
+		display: grid;
+		grid-template-columns: auto auto auto auto;
+	}
+	
+	.grid-container > div {
+		background-color: rgba(255, 255, 255, 0.8);
+		text-align: center;
+		padding: 20px 0;
+		font-size: 30px;
+	  }
+	
+	.video-container{
+		text-align: center;
+	}
+	
+	.titletext2{
+		position: relative;
+		top: -250px;
+		height: 0px
+	}
+	
+	
+	video{
+		filter:brightness(80%); /*make background video dimmer, darker */
+		width:100%;
+		height: 100%;
+		z-index: -100;
+	}
+	
+	
+	body::-webkit-scrollbar {
+		width: 4px;
+	}
+	body::-webkit-scrollbar-track{
+		background-color: black;
+	}
+	
+	body::-webkit-scrollbar-thumb {
+	
+		background: #d3cf32;
+	   
+	}
+	
+	.fcs {
+		text-align: center;
+		font-size: medium;
+		font-style: italic;
+		font-weight: bold;
+		color: rgba(217, 199, 235, 1);
+		position: fixed;
+		bottom: 20px;
+		width: 100%;
+	}
+	
+	.over1{
+		width: 700px;
+		height: 300px;
+		/*background-color: red;*/
+		z-index: 2;
+		position: absolute;
+		margin-left: 500px;
+		margin-top: 100px;
+	}
+	
+	.over2{
+		width: 700px;
+		height: 300px;
+		background-color: white;
+		z-index: 1;
+		position: absolute;
+	
+	}
+	
+	.f{
+		background-color: pink;
+		color: #8a8a8a;
+		font-size: 14px;
+		padding: 60px 0 20px;
+	}
+	
+	.imgal {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 30px;
+	}
+	
+	.imga2 {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 30px;
+	}
+	.btn-primary1 {
+				padding: 0.5px;
+				background-color: transparent;
+				border: none;
+				margin-top: 1px;
+			}
+	
+				.btn-primary1 > .total-count {
+					position: absolute;
+					background-color: black;
+					margin-left: -12.5px;
+					margin-top: -1px;
+					padding: 4px 5.5px;
+					border-radius: 30px;
+				}
+	
+				.btn-primary1:hover {
+					background-color: white;
+					transition: all 200ms ease-in-out;
+					border-radius: 20px;
+				}
+	
+				.card > img{
+					max-height: 250px;
+					max-width: 230px;
+				}
+	
+				.card-block{
+					padding-right: 5px;
+				}
+	
+				.card{
+					height: 450px;
+					position: relative;
+				}
+	
+			* {
+			box-sizing: border-box;
+			}
+	
+			/* Style inputs */
+			input[type=text], select, textarea {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
+			}
+	
+			input[type=submit] {
+			background-color: black;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			cursor: pointer;
+			margin-left: 94%;
+			}
+	
+			input[type=submit]:hover {
+			background-color: #563434;
+			}
+	
+			/* Create two columns that float next to eachother */
+			.column {
+			float: left;
+			width: 50%;
+			margin-top: 6px;
+			padding: 70px;
+			}
+	
+			/* Clear floats after the columns */
+			.row:after {
+			content: "";
+			display: table;
+			clear: both;
+			}
+	
+			/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+			@media screen and (max-width: 600px) {
+			.column, input[type=submit] {
+				width: 100%;
+				margin-top: 0;
+			}
+			}
+		</style>    
+	</head>
+
+	<body>
+		<header>
+			<div class="size">
+				<div>
+				<a href="/Html/index.html"><img src="/images/1.png" alt="MainLogo" width="180px" style="float: left;padding: 25px;"></a>
+				</div>
+				<nav> 
+					<br/><br/><br/>
+					<a id="navicon" href="#"><img src="/images/menu.png" class="menu-icon"></a>
+					<ul>
+						<li class="nav_btn"><a href="/Html/index.html">Home</a></li>
+						<li class="dropdown">
+							<button class="dropbtn"><a href="#">Image|Generator</a></button>
+							<ul class="dropdown-content">
+								<li class="sub-dropdown">
+									<a href="http://127.0.0.1:5000">Image to Sketch</a>
+								</li>
+								<li class="sub-dropdown">
+									<a href="http://127.0.0.1:5000">Image Colorization</a>
+								</li>
+								<li class="sub-dropdown">
+									<a href="/painting tools/index.html">Painting Tool</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<button class="dropbtn"><a href="#">Image|Searching</a></button>
+							<ul class="dropdown-content">
+								<li class="sub-dropdown">
+									<a href="/Html/TextImageSearch.html">Keyword Search</a>
+								</li>
+								<li class="sub-dropdown">
+									<a href="#">Reverse Image Search</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav_btn"><a href="/Html/About_Us.html">About</a></li>
+						<li class="nav_btn"><a href="/Html/Contact_Us.html">Contact</a></li>
+						<li class="nav_btn"><a href="/Html/faq.html">FAQ</a></li>
+						<li>
+							<a href="/Html/Account.html"><img class="nav_btn2" src="/images/login.png" width="50" height="50" style="padding:5px;"></a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	    <div class="container">
+	        <div class="container-tools">
+	            <div class="tools extra">
+	            	<label class="container-button container-label">Tools: </label>
+	                <div class="container-button selection">
+	                    <input id="selection" type="button" value="Selection" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="cut" type="button" value="Cut" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="copy" type="button" value="Copy" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="paste" type="button" value="Paste" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="delete" type="button" value="Delete" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="seToBack" type="button" value="Set to Back" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="seToFront" type="button" value="Set to Front" />
+	                </div>
+	                <div class="container-button">
+	                    <a href="javascript:;" id="save">Save as Image</a>
+	                </div>
+	                <div class="container-button">
+	                    <input id="imageUpload" type="file" value="Image" />
+	                </div>
+	            </div>
+	            <div class="tools shaps">
+	            	<label class="container-button container-label">Shaps: </label>
+	                <div class="container-button">
+	                    <input id="circle" type="button" value="Circle" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="oval" type="button" value="Oval" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="rect" type="button" value="Rectangle" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="line" type="button" value="Line" />
+	                </div>
+	                <div class="container-button">
+	                    <input class="active" id="pencil" type="button" value="Pencil" />
+	                </div>
+	            </div>
+	            <div class="tools stroke">
+	            	<label class="container-button container-label">Stroke: </label>
+	                <div class="container-button">
+	                    <input class="strokeWidth" data-sw="1" type="button" value="Stroke 1" />
+	                </div>
+	                <div class="container-button">
+	                    <input class="strokeWidth active" data-sw="2" type="button" value="Stroke 2" />
+	                </div>
+	                <div class="container-button">
+	                    <input class="strokeWidth" data-sw="4" type="button" value="Stroke 3" />
+	                </div>
+	                <div class="container-button">
+	                    <input class="strokeWidth" data-sw="6" type="button" value="Stroke 4" />
+	                </div>
+	            </div>
+	            <div class="tools Text">
+	            	<label class="container-button container-label">Text: </label>
+	                <div class="container-button">
+	                    <input id="fontSize" type="number" value="11" />
+	                </div>
+	                <div class="text-add container-button">
+	                    <input id="addText" type="button" value="Add Text" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="bold" type="button" data-activeType="bold" data-inActiveType="normal" value="B" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="italic" type="button" data-activeType="italic" data-inActiveType="normal" value="I" />
+	                </div>
+	                <div class="container-button">
+	                    <input id="underLine" type="button" data-activeType="underline" data-inActiveType="" value="U" />
+	                </div>
+	            </div>
+	            <div class="tools ColorBox">
+	            	<label class="container-button container-label">Colors: </label>
+	            	<div class="container-button">
+	                    <input class="colorBtn floatLeft active" data-type="color1" type="button" value="Color 1" /><span class="selectedColor1"></span>
+	                </div>
+	                <div class="container-button">
+	                    <input class="colorBtn floatLeft" data-type="color2" type="button" value="Color 2" /><span class="selectedColor2"></span>
+	                </div>
+	                <div class="color-palatte">
+	                	<a class="color" href="javascript:;" data-color="#FFFFFF" style="background-color:#FFFFFF"></a>
+	                	<a class="color" href="javascript:;" data-color="#FF0000" style="background-color:#FF0000"></a>
+	                	<a class="color" href="javascript:;" data-color="#FF00FF" style="background-color:#FF00FF"></a>
+	                	<a class="color" href="javascript:;" data-color="#00FF00" style="background-color:#00FF00"></a>
+	                	<a class="color" href="javascript:;" data-color="#00FFFF" style="background-color:#00FFFF"></a>
+	                	<a class="color" href="javascript:;" data-color="#0000FF" style="background-color:#0000FF"></a>
+	                	<a class="color" href="javascript:;" data-color="#FFFF00" style="background-color:#FFFF00"></a>
+	                	<a class="color" href="javascript:;" data-color="#F0F0F0" style="background-color:#F0F0F0"></a>
+	                	<a class="color" href="javascript:;" data-color="#000000" style="background-color:#000000"></a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="container-body">
+	            <canvas width="1200px" height="490px" id="canvas"></canvas>
+	        </div>
+	    </div>
+		 <!-- -------- footer -------- -->
+		 <div class="footer">
+			<div class="containerf">
+				<div class="row">
+					<div class="footer-col-1">
+						<h3>Download our APP</h3>
+						<p>Download APP for Android and IOS mobile Phone.</p>
+						<div class="app-logo">
+							<img src="/images/play-store.png">
+							<img src="/images/app-store.png">
+						</div>
+					</div>
+				
+					<div class="footer-col-2">
+						<a href="#"><img src="/images/1.png" alt=""></a>
+			
+						
+					</div>
+	
+					<div class="footer-col-3">
+						<h3>Help Center</h3>
+					<ul>
+							<a href="/Html/faq.html"><li>FAQ</li></a>
+							<a href="/Html/timeframe.html"><li>Terms & Conditions</li></a>
+							<a href="/Html/timeframe.html"><li>Privacy Notice</li></a>
+							<a href="/Html/Contact_Us.html"><li>Contact Us</li></a>
+					</ul>
+					</div>
+	
+					<div class="footer-col-4">
+						<h3>Follow Us</h3>
+					<ul>
+						<a href="https://www.facebook.com/"><li>Facebook</li></a>
+						<a href="https://twitter.com/"><li>Twitter</li></a> 
+						<a href="https://www.Instagram.com/"><li>Instagram</li></a>
+						<a href="https://www.Youtube.com/"><li>Youtube</li></a>
+					</ul>
+					</div>
+				</div>
+				<hr>
+				<p class="copyright">Copyright© 2021. drawSimple Sdn Bhd (Company Reg. No. 201401005001 (1081077-X)) AJL932198. All Rights Reserved. (VER: 3.0.0)</p>
+			</div>
+		</div>
+		
+	    <script type="text/javascript" src="js/canvas.js"></script>
+	</body>
+
+</html>

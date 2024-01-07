@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> drawSimple | AI ART GENERATOR </title>
+    <link rel="icon" href="/images/111.png" sizes="12x12" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/javascript/javascript.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <style>
+            header{
+		position: absolute;
+		flex-flow: column;
+		display:flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		padding: 20px 40px;
+		background-color: rgba(0,0,0,.5);
+		transition: all 300ms ease-in-out;
+		width:100%;
+		height: 20%;
+		z-index: 2;
+	}
+
+        .btn-primary1 {
+            padding: 0.2px;
+            background-color: transparent;
+            border: none;
+            margin-top: 1px;
+        }
+
+            .btn-primary1 > .total-count {
+                position: absolute;
+                background-color: black;
+                margin-left: -12.5px;
+                margin-top: -1px;
+                padding: 4px 5.5px;
+                border-radius: 30px;
+            }
+
+            .btn-primary1:hover {
+                background-color: white;
+                transition: all 200ms ease-in-out;
+                border-radius: 20px;
+            }
+
+            .card > img{
+                max-height: 235px;
+                max-width: 235px;
+            }
+
+            .card-block{
+                padding-right: 5px;
+            }
+
+            .card{
+                height: 450px;
+                position: relative;
+            }
+
+            #searchHistory{
+                margin-top: 10px;
+                margin-left: 8px;
+                text-align: center;
+                width: 99%;
+                box-sizing: border-box;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+            }
+
+            #historyLine{
+                padding: 0.5rem 3rem;
+                margin-left: 10px;
+                color: black;
+                font-size: 1.2rem;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            #historyList{
+                padding: 0.5rem 3rem;
+                margin-left: 10px;
+                color: black;
+                font-size: 1.2rem;
+                cursor: pointer;
+                text-align: left;
+            }
+
+            .icon-button {
+            background-color: transparent;
+            margin-left: 99%;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            }
+
+            .icon-button img {
+            width: 24px;
+            height: 24px;
+            }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="size">
+            <div>
+            <a href="/Html/loginal.html"><img src="/images/1.png" alt="MainLogo" width="180px" style="float: left;padding: 25px;"></a>
+            </div>
+            <nav> 
+                <br/><br/><br/>
+                <a id="navicon" href="#"><img src="/images/menu.png" class="menu-icon"></a>
+                <ul>
+                    <li class="nav_btn">
+                        <a href="/Html/index.html">Home</a></li>
+                      <li class="dropdown">
+                          <button class="dropbtn"><a href="#">Image|Generator</a></button>
+                          <ul class="dropdown-content">
+                            <li class="sub-dropdown">
+                              <a href="http://127.0.0.1:5000">Image to Sketch</a>
+                            </li>
+                            <li class="sub-dropdown">
+                              <a href="http://127.0.0.1:5000">Image Colorization</a>
+                            </li>
+                            <li class="sub-dropdown">
+                              <a href="../../painting tools/index.html">Painting Tool</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn"><a href="#">Image|Searching</a></button>
+                        <ul class="dropdown-content">
+                            <li class="sub-dropdown">
+                                <a href="/Html/TextImageSearchlogin.html">Keyword Search</a>
+                            </li>
+                            <li class="sub-dropdown">
+                                <a href="http://192.168.1.3:8501">Reverse Image Search</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_btn"><a href="/Html/loginal.html#form">Contact</a></li>
+                    <li class="nav_btn"><a href="/Html/faqlogin.html">FAQ</a></li>
+                    <li class="dropdown">
+                        <button class="dropbtn"><a href="#"><img class="nav_btn2" src="/images/login.png" width="50" height="50" style="padding:5px;"></a></button>
+                        <ul class="dropdown-content">
+                        <li class="sub-dropdown">
+                            <a href="/Html/UserAccount.html">User Account Detail</a>
+                        </li>
+                        <li class="sub-dropdown">
+                            <a href="/Html/History.html">User History</a>
+                        </li>
+                        <li class="sub-dropdown">
+                            <a href="/Html/Account.html">Log out</a>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <div style="text-align:center; padding-top: 200px;">
+        <h1>FAQ ( Frequently Asked Question )</h1>
+    </div>
+    <br>
+    <div class="aboutmargin">
+        <div class="fqa">
+        <p style="text-align:left;color: black;"><strong>Account</strong><span id="dots"></span>
+            <div id="more"><br><br>1. How to register as a member?<br><br>
+                <div class="answer">
+                    You may follow steps below to register:<br/><br/>
+                    a Open link : <a style=" color : blue;" href="Register.html"><small></small></a> <br>
+                    b Fill in your username<br/>
+                    c Fill in your email address<br/>
+                    d Fill in your password<br/>
+                    e Click Register and you will receive an email notification 
+                </div>
+                    <br><br>2. How do I change the information in my account?<br><br>
+                <div class="answer"> 
+                    Not to worry, you may call our 24 hours Customer Care line or drop a message at : <a style ="color: blue" href="Contact_Us.html"><small></small></a> 
+                    <br>We will assist you as soon as possible.
+                </div>  
+                    <br><br>3. How can I order without an account?<br><br>
+                    <div class="answer">
+                    You need to create an account before placing an order. To register, kindly register on this link: <a style="color:blue;" href="Register.html"><small></small></a>
+                    </div>
+                    <br><br>4. I have submitted my online account registration but there is no verification email received. What should I do?<br><br>
+                    <div class="answer">
+                        After submitting your account registration, an email with a verification link will be sent to you. If you did not receive the email in your Inbox, please check the spam or junk folder too.
+                    </div>
+                   
+                    <br><br>5. I found the verification email but the authentication link in the email is not active/working. What should I do?<br><br>
+                    <div class="answer">
+                        The link provided in the email will auto expire after 24 hours. If the link has expired, you may re-attempt to register again.
+                    </div>
+                    
+                    <br><br>6. How to get the Tax Invoice of my purchase? Can I download my Tax Invoice?<br><br>
+                    <div class="answer">
+                        Not to worry, you may call our 24 hours Customer Care line.
+                    </div>
+                    
+            </div>
+        </p>
+            <button onclick="myFunction()" id="myBtn" style="float: right;">Read more<br></button>
+        </div>
+        <br>
+        <div class="fqa">
+            <p style="text-align:left;color: black;"><strong>Function</strong><span id="dots1"></span>
+                <div id="more1"><br><br>1. How do I use the searching function in drawSimple?<br><br>
+                    <div class="answer">
+                        You can use text search to find the results you want through our website <a style ="color: blue" href="/Html/TextImageSearch.html"><small></small></a> 
+                    </div>
+                    <div class="answer">
+                        Or You can use the Reverse Image Search to find the results you want through our website <a style ="color: blue" href="ReverseImageSearch.html"><small></small></a> 
+                    </div>
+                 
+            <br><br>2. How do I use the Image to Sketch function<br><br>
+            <div class="answer">
+                You can upload your photo in the sketch function page, then it will proceed the photo to the sketch image. <a style ="color: blue" href="/image to pencil sketch/templates/index.html"><small></small></a> 
+            </div>
+            
+            <br><br>3. How do i use the colorization function?<br><br>
+            <div class="answer">
+                You can upload your photo to let the system generate the colorization for you. 
+            </div>
+                     
+        </div>
+         </p>
+        <button onclick="myFunction1()" id="myBtn1" style="float: right;">Read more<br></button>
+    </div>
+    </div>
+    <br><br><br>
+    <!-- -------- footer -------- -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download our APP</h3>
+                    <p>Download APP for Android and IOS mobile Phone.</p>
+                    <div class="app-logo">
+                        <img src="/images/play-store.png">
+                        <img src="/images/app-store.png">
+                    </div>
+                </div>
+            
+                <div class="footer-col-2">
+                    <a href="/Html/loginal.html"><img src="/images/1.png" alt=""></a>
+        
+                    
+                </div>
+
+                <div class="footer-col-3">
+                    <h3>Help Center</h3>
+                <ul>
+                        <a href="/Html/faqlogin.html"><li>FAQ</li></a>
+                        <a href=""><li>Terms & Conditions</li></a>
+                        <a href=""><li>Privacy Notice</li></a>
+                        <a href="/Html/loginal.html#form"><li>Contact Us</li></a>
+                </ul>
+                </div>
+
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                <ul>
+                    <a href="https://www.facebook.com/"><li>Facebook</li></a>
+                    <a href="https://twitter.com/"><li>Twitter</li></a> 
+                    <a href="https://www.Instagram.com/"><li>Instagram</li></a>
+                    <a href="https://www.Youtube.com/"><li>Youtube</li></a>
+                </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright© 2021. drawSimple Sdn Bhd (Company Reg. No. 201401005001 (1081077-X)) AJL932198. All Rights Reserved. (VER: 3.0.0)</p>
+        </div>
+    </div>
+      
+   <script>
+    function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+    </script>
+    <script>
+    function myFunction1() {
+        var dots = document.getElementById("dots1");
+        var moreText = document.getElementById("more1");
+        var btnText = document.getElementById("myBtn1");
+
+        if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+        } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+        }
+    }
+    </script>
+
+    <script src="Cart_general.js"></script>
+</body>
+</html>

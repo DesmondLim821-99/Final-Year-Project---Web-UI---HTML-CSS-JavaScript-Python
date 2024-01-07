@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> drawSimple | AI ART GENERATOR </title>
+    <link rel="icon" href="/images/111.png" sizes="12x12" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/javascript/javascript.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <style>
+            header{
+		position: absolute;
+		flex-flow: column;
+		display:flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		padding: 20px 40px;
+		background-color: rgba(0,0,0,.5);
+		transition: all 300ms ease-in-out;
+		width:100%;
+		height: 20%;
+		z-index: 2;
+	}
+
+        .btn-primary1 {
+            padding: 0.2px;
+            background-color: transparent;
+            border: none;
+            margin-top: 1px;
+        }
+
+            .btn-primary1 > .total-count {
+                position: absolute;
+                background-color: black;
+                margin-left: -12.5px;
+                margin-top: -1px;
+                padding: 4px 5.5px;
+                border-radius: 30px;
+            }
+
+            .btn-primary1:hover {
+                background-color: white;
+                transition: all 200ms ease-in-out;
+                border-radius: 20px;
+            }
+
+            .card > img{
+                max-height: 235px;
+                max-width: 235px;
+            }
+
+            .card-block{
+                padding-right: 5px;
+            }
+
+            .card{
+                height: 450px;
+                position: relative;
+            }
+
+            #searchHistory{
+                margin-top: 10px;
+                margin-left: 8px;
+                text-align: center;
+                width: 99%;
+                box-sizing: border-box;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+            }
+
+            #historyLine{
+                padding: 0.5rem 3rem;
+                margin-left: 10px;
+                color: black;
+                font-size: 1.2rem;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            #historyList{
+                padding: 0.5rem 3rem;
+                margin-left: 10px;
+                color: black;
+                font-size: 1.2rem;
+                cursor: pointer;
+                text-align: left;
+            }
+
+            .icon-button {
+            background-color: transparent;
+            margin-left: 99%;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            }
+
+            .icon-button img {
+            width: 24px;
+            height: 24px;
+            }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="size">
+            <div>
+            <a href="/Html/loginal.html"><img src="/images/1.png" alt="MainLogo" width="180px" style="float: left;padding: 25px;"></a>
+            </div>
+            <nav> 
+                <br/><br/><br/>
+                <a id="navicon" href="#"><img src="/images/menu.png" class="menu-icon"></a>
+                <ul>
+                    <li class="nav_btn">
+                        <a href="/Html/index.html">Home</a></li>
+                      <li class="dropdown">
+                          <button class="dropbtn"><a href="#">Image|Generator</a></button>
+                          <ul class="dropdown-content">
+                            <li class="sub-dropdown">
+                              <a href="http://127.0.0.1:5000">Image to Sketch</a>
+                            </li>
+                            <li class="sub-dropdown">
+                              <a href="http://127.0.0.1:5000">Image Colorization</a>
+                            </li>
+                            <li class="sub-dropdown">
+                              <a href="../../painting tools/index.html">Painting Tool</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn"><a href="#">Image|Searching</a></button>
+                        <ul class="dropdown-content">
+                            <li class="sub-dropdown">
+                                <a href="/Html/TextImageSearchlogin.html">Keyword Search</a>
+                            </li>
+                            <li class="sub-dropdown">
+                                <a href="http://192.168.1.3:8501">Reverse Image Search</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav_btn"><a href="/Html/loginal.html#form">Contact</a></li>
+                    <li class="nav_btn"><a href="/Html/faqlogin.html">FAQ</a></li>
+                    <li class="dropdown">
+                        <button class="dropbtn"><a href="#"><img class="nav_btn2" src="/images/login.png" width="50" height="50" style="padding:5px;"></a></button>
+                        <ul class="dropdown-content">
+                        <li class="sub-dropdown">
+                            <a href="/Html/UserAccount.html">User Account Detail</a>
+                        </li>
+                        <li class="sub-dropdown">
+                            <a href="/Html/History.html">User History</a>
+                        </li>
+                        <li class="sub-dropdown">
+                            <a href="/Html/Account.html">Log out</a>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="search" style="padding-top: 200px;">
+        <input type="text" id="searchHistory" placeholder="Search history...">
+      </div>
+      <div id="historyLine">
+        <h1>History</h1>
+        <button class="icon-button" id="deleteAllButton"><img src="/images/trashicon.png" alt="TrashIcon"></button>
+        <ul id="historyList"></ul>
+      </div>
+    <!-- -------- footer -------- -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download our APP</h3>
+                    <p>Download APP for Android and IOS mobile Phone.</p>
+                    <div class="app-logo">
+                        <img src="/images/play-store.png">
+                        <img src="/images/app-store.png">
+                    </div>
+                </div>
+            
+                <div class="footer-col-2">
+                    <a href="#"><img src="/images/1.png" alt=""></a>
+        
+                    
+                </div>
+
+                <div class="footer-col-3">
+                    <h3>Help Center</h3>
+                <ul>
+                        <a href="/Html/faqlogin.html"><li>FAQ</li></a>
+                        <a href=""><li>Terms & Conditions</li></a>
+                        <a href=""><li>Privacy Notice</li></a>
+                        <a href="/Html/loginal.html#form"><li>Contact Us</li></a>
+                </ul>
+                </div>
+
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                <ul>
+                    <a href="https://www.facebook.com/"><li>Facebook</li></a>
+                    <a href="https://twitter.com/"><li>Twitter</li></a> 
+                    <a href="https://www.Instagram.com/"><li>Instagram</li></a>
+                    <a href="https://www.Youtube.com/"><li>Youtube</li></a>
+                </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright© 2021. drawSimple Sdn Bhd (Company Reg. No. 201401005001 (1081077-X)) AJL932198. All Rights Reserved. (VER: 3.0.0)</p>
+        </div>
+    </div>
+
+</body>
+
+<script>
+const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+function displaySearchHistory(searchQuery) {
+    const historyList = document.querySelector('#historyList');
+    historyList.innerHTML = '';
+    if (searchHistory.length === 0) {
+        historyList.innerHTML += '<p>No search history found.</p>';
+    } else {
+        let counter = 1;
+        searchHistory.forEach((item, index) => {
+            if (item.includes(searchQuery)) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `/Html/TextImageSearch.html?q=${encodeURIComponent(item)}`;
+                link.innerText = `${counter}. ${item}`;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.setItem('lastOperation', 'search');
+                    window.location.href = e.target.href;
+                });
+                listItem.appendChild(link);
+                listItem.innerHTML += `<button class="delete" onclick="deleteHistory(event, '${item}')">x</button>`;
+                historyList.appendChild(listItem);
+                counter++;
+            }
+        });
+    }
+}
+
+
+
+function deleteHistory(event, item) {
+const index = searchHistory.indexOf(item);
+const listItem = event.target.parentNode;
+searchHistory.splice(index, 1);
+localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+listItem.remove();
+window.location.assign("/Html/History.html");
+}
+
+
+
+const deleteAllButton = document.querySelector('#deleteAllButton');
+deleteAllButton.addEventListener('click', () => {
+const historyList = document.querySelector('#historyList');
+historyList.innerHTML = ''; // remove all list items from the DOM
+localStorage.removeItem('searchHistory'); // remove the searchHistory item from local storage
+searchHistory.length = 0; // clear the searchHistory array
+window.location.assign("/Html/History.html");
+});
+
+
+const searchInput = document.querySelector('#searchHistory');
+searchInput.addEventListener('input', (e) => {
+displaySearchHistory(e.target.value);
+});
+
+displaySearchHistory('');
+
+</script>
+</html>
